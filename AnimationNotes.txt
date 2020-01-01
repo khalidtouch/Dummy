@@ -1,0 +1,20 @@
+for the repeatMode for alpha animations: 
+we have "restart" and "reverse"
+
+the Animator.AnimatorListener interface is used to monitor animations
+it has four methods:
+1. onAnimationStart - notifies the start of animation
+2. onAnimationEnd - notifies the end of animation (not called for animations whose
+	repeatCount is infinite)
+3. onAnimationRepeat - notifies the repetition of animation
+4. onAnimationCancel - this is called when animation is cancelled. a cancelled animation also calls 
+onAnimationEnd
+
+the interface was implemented like this in kotlin:
+class MainActivity : AppCompatActivity(), Animator.AnimatorListener{...}
+
+//just a revision, let's print a toast
+Toast.makeText(this, "Your text", Toast.LENGTH_SHORT).show()
+
+
+the ValueAnimator class is a superclass of ObjectAnimator

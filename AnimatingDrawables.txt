@@ -1,0 +1,36 @@
+To animate a drawable, we use
+AnimationDrawable.
+
+Interpolators:
+this defines the rate of change of animation. 
+it adds various effects to animation such as acceleration, 
+deceleration, bounce etc.
+
+android:interpolator="@android:anim/bounce_interpolator"
+and so on...
+using Code;
+
+scaleX.interpolator = BounceInterpolator()
+or
+scaleX.interpolator = OvershootInterpolator()
+
+
+ViewPropertyAnimator
+1. perform multiple animation at once
+2. more convenient syntax
+
+calling View.animate() returns reference to ViewPropertyAnimator object
+
+e.g
+
+fun viewPropertyAnimator(view : View){
+  val vpo : ViewPropertyAnimator = targetImage.animate()
+  vpo.apply{
+     duration = 1000
+     rotationX(360.0f)
+     scaleX(1.5f)
+     scaleY(1.5f)
+     interpolator = OvershootInterpolator()
+     start()
+   }
+}

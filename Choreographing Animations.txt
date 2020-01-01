@@ -1,0 +1,4 @@
+We use AnimatorSet class...a subclass of Animator.
+then PropertyValuesHolder class..used by ValueAnimator to hold values of a particular animation.
+ViewPropertyAnimator is backed by ValueAnimaotr, it is the most efficient in animating views 
+ using AnimatorSet() to group animatables

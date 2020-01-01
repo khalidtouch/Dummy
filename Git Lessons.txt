@@ -1,0 +1,35 @@
+git lessons:
+//initialize a git local repo
+git init
+
+//connect local repo to repo on Github
+git remote add origin https://github.com/mindplace/test-repo.git
+
+//push branch to github
+git push -u origin master
+
+//check whether git is tracking your files
+git status
+
+//stage all files in current directory
+git add .
+
+//stage all files in current directory and even subdirectories
+git add --all
+
+//stage only all new and modified files
+
+//creating a new repo from bash
+echo "# SimpleCalculator " >> README.md
+git init
+git add README.md
+git commit -m "my first commit"
+git remote add origin https://github.com/khalidtouch/SimpleCalculator.git
+git push -u origin master
+
+https://github.com/khalidtouch/DummyDictionary
+
+
+git pull origin master
+//fetches a copy of the master branch from the original repo and merges
+it with the current branch you have checked out.

@@ -1,0 +1,83 @@
+Never do work on the main thread. 
+The application process is handled by threads. 
+The Main thread is created by the process. In this MainThread, we have the UI 
+components.
+
+Doing other work on the MainThread will lead to the UI crashing.
+To avoid doing other work on the MainThread, you create other Threads..
+
+For threading, you can use a:
+1. Thread
+2. HandlerThreads
+3. AsyncTasks
+4. ThreadPools
+
+Every Thread has a Looper, thus, if you are creating 
+a custom Thread, you need to initialize a Looper manually.
+use: Looper.prepare() then Looper.loop() loops
+it indefinitely as long as the Thread exists
+
+
+
+#NOTE: In using Android Studio, press ALT+insert to insert default constructors in to the class
+
+
+A Thread is basically stack of works..(Tasks). Every thread has a looper to loop between task
+In essence, a thread has a Looper and a MessageQueue
+
+Operation;
+Our MainThread containst the UI components, while Thread2 manages the Room database.
+Now, we create a Message object(incoming) that gets sent to the background Thread using a Handler .
+
+The message is then added to the MessageQueue. Then it's executed when it reaches the top of the stack.
+Once the Message is executed, the Looper cleans it off from the stack and then sends it to the Main Thread
+
+Actually, Another Message object is created(outgoing) to bear the output message from the stack.
+This message is then carried using a Handler back to the Main Thread.
+Then this Message object is added to the RecyclerView
+
+
+The Thread/Looper/Handler pattern is the building block for all the other options.
+i.e. ThreadingHandler, AsyncTask, ThreadPools
+
+
+F================================
+
+PART 2 
+
+======================================
+We need to be able to Save, Update, Retrieve, and Delete words on the this dictionary
+and carry out tasks on the background
+
+The Room Persistence Library is a combination of classes that makes it easy
+to read and write to the Device's internal SQLite database
+
+
+===================
+OUR PROCEDURES
+1. create a custom Thread class. Inside this class we do all our database transactions. 
+/*
+public class MyThread extends Thread {
+ @Override
+ public void run() {
+ // do work
+}
+ //class code
+} //end class
+*/
+
+
+2. create a system to communicate between the activity and the Background thread. the messages sent to the background
+thread, tell it what and what should be done.
+example, we need be able to send a message to retrieve all words from the database. 
+when this is received by the background thread, it queries the words and sends to the activity
+we always use handlers, coz handlers have the ability to hold Message object and pass them to different threads
+
+Message objects have the ability to hold messages in a Bundle
+
+
+MEMORY LEAKS..
+This occurs when the reference to an activity is saved on a background. 
+The android GarbageCollector is unable to clean up activities if there is a reference to one 
+saved in a memory somewhere.
+Thus, all the Objects, Views, and Variables of the activity get saved in the memory limbo

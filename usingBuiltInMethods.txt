@@ -1,0 +1,141 @@
+CREATING ARRAYS USING BUILT-IN FUNCTIONS
+here we can create certain kinds of ndarrays using just one line of code.
+
+#we create a 3x4 ndarray full of zeros
+x = np.zeros((3,4))
+
+print(x) 
+# x =
+[[0.,0.,0.,0.],
+[0.,0.,0.,0.],
+[0.,0.,0.,0.]]	
+Similarly we could use the np.ones() function
+
+#create a 2x3 ndarray full of fives
+
+x np.full((2,3), 5)	
+
+print(x)
+# x = 
+[[5,5,5],
+[5,5,5]]
+
+An identity matrix
+this is a matrix that has ones on its diagonals and zeros everywhere else
+
+#to create a 5x5 matrix
+x = np.eye(5)
+
+print(x)
+# x = 
+[[1. 0. 0. 0. 0.],
+[0. 1. 0. 0. 0.],
+[0. 0. 1. 0. 0.],
+[0. 0. 0. 1. 0.],
+[0. 0. 0. 0. 1.]]
+
+Diagonal Matrix
+it only has values in its main diagonal
+
+#creating a 4x4 diagonal matrix
+x = np.diag([10,20,30,50])
+
+print(x)
+
+# x = 
+[[10 0 0 0],
+[0 20 0 0],
+[0 0 30 0],
+[0 0 0 50]]
+
+np.arange()
+
+
+Numpy allows the creation 
+of ndarrays that have evenly spaced values within a 
+given interval
+
+this function is versatile accommodating one , two, or three arguments
+
+#a rank 1 ndarray having sequential integers from 0 to 9
+x = np.arange(10)
+
+print(x)
+# x = [0 1 2 3 4 5 6 7 8 9]
+
+x = np.arange(4,10)
+
+print(x)
+
+# x = [4 5 6 7 8 9]
+
+#now we create a rank 1 ndarrat with evenly spaced integers from 1 to 13 in steps of 3
+x = np.arange(1,14,3)
+
+print(x)
+
+# x = [1 4 7 10 13]
+
+using the np.linspace()
+
+this is similar to the np.arange() method, but it gives consistent values
+when the step number is a non-integer
+And it takes at least two arguments nonetheless
+
+x = np.linspace(start, stop, N) -> N is number of values to be reproduced
+the start and stop numbers are both included
+it gives the number of elements we want in a particular interval, instead of the step between the values
+
+
+####
+x = np.linspace(0,25,10)
+
+print(x)
+# x = 
+[0. 2.777777778 5.555555556 8.3333333 11.1111111 
+13.88888888889 16.666666667 19.444444444 22.222222222 25.]
+by default both the start and start args are included. But to
+exclude the stop arg, use;
+endpoint = False
+
+x = np.linspace(0,25,10, endpoint=False)
+
+print(x)
+# x = [0. 2.5 5. 7.5 10. 12.5 15. 17.5 20. 22.5]
+
+
+x = np.arange(20)
+
+x = np.reshape(x, (4,5))
+
+and also
+
+y = np.arange(20).reshape(4,5)
+also 
+z = np.linspace(0,50,10, endpoint=False).reshape(5,2)
+
+RANDOM NUMBER ARRAYS
+Often in Machine Learning you will need to create an ndarray of the given shape
+with random floats in the half-open interval[0.0, 1.0) 
+
+#create a 3x3 ndarray with random floats in the half-open interval [0.0, 1.0)
+
+x = np.random.random((3,3))
+
+print(x)
+
+# x = 
+[[0.123343........]
+[.................]
+[.................]]
+
+x = np.random.randint(4,15, size=(3,2))
+
+np.random.normal(mean, standard deviation, size = shape)
+
+In Summary
+np.zeros()
+np.ones()
+np.eye()
+np.full()
+np.diag([])

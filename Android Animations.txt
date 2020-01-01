@@ -1,0 +1,25 @@
+Evolution of Animation APIs
+1. API 1, View Animations
+2. API 11, Property Animation (ValueAnimator, ObjectAnimator)
+3. API 12, Property Animation (ViewPropertyAnimator)
+4. API 19, Transition API
+5. API 21, Animated Vector Drawables
+6. AndroidX, Physics Based Animations
+7. AndroidX, Motion Layout
+
+Property Animator:
+Parent class: Animator
+
+WAYS:
+1. XML Resources
+2. From Code
+
+Using XMl res/animator
+opacity: "1.0" opaque, "0.0" transparent
+[alpha] - fade-in or fade-out animation
+[scaleX] - resizing animation
+[scaleY] - resizing animation
+[translateX] - translate animation
+[translationY] - translate animation
+[rotation] - rotate animation (clockwise is positive)
+[pivotX] and [pivotY] - control location of the pivot point

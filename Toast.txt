@@ -1,0 +1,23 @@
+THE BASICS:
+Toast provides simple feedback about an operation in a small popup. It only fills the 
+amount of space required for the message
+
+Context context = getApplicationContext();
+CharSequence text = "Hello toast!";
+int duration = Toast.LENGTH_SHORT;
+
+Toast toast = Toast.makeText(context, text, duration);
+toast.show();
+
+//================
+
+//or simply
+Toast.makeText(context, text, duration).show();
+
+POSITIONING YOUR TOASt
+setGravity(int, int, int)
+i.e. Gravity constant, x-position offset, y-position offset.
+ex:
+toast.setGravity(Gravity.TOP|Gravity.LEFT, 0, 0);
+
+Toasts are not clickable, if user response to a status message is required, consider using a Notification instead. 
